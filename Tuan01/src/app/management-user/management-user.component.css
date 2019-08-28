@@ -1,0 +1,96 @@
+h1{
+    color: aqua;
+}
+
+.pagination li{
+    border: 0.2px solid #e0d7d7;
+    padding: 2px 6px;
+}
+.pagination{
+    position: absolute;
+    left: 45%;
+}
+.active{
+    background-color: darkseagreen;
+}
+.search_design{
+    display: inline-flex; 
+   
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 42px;
+    background-color: #d9dde6;
+    border-radius: 30px;
+    padding: 10px;
+    width: 37%;
+}
+
+ 
+
+header {
+    border-bottom: 1px solid gray;
+    text-align: center;
+    position:flex;
+    padding-bottom: 15px;
+   
+  }
+  
+  /* Create two columns/boxes that floats next to each other */
+  nav {
+    float: left;
+    width: 30%;
+    height: 600px; /* only for demonstration, should be removed */
+    background-color: rgb(17, 16, 26);
+    padding: 20px;
+  }
+  
+  /* Style the list inside the menu */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #f1f1f1;
+    /* only for demonstration, should be removed */
+  }
+  .icon-header-right{
+    position: absolute;
+    right: 25px;
+  }
+  .icon-header-left{
+    position: absolute;
+    left: 25px;
+  }
+  .icon-header-left i{
+    padding: 5px;
+  }
+  .icon-header-right i{
+    padding: 5px;
+  }
+  .list-group li{
+    border: none;
+    background-color: rgb(17, 16, 26);
+    color:white;
+  }
+  .list-group li:hover{
+        background-color: rgb(186, 190, 194);
+  }
+  .list-group li i{
+      margin-right: 10px;
+  }
+  .jenick{
+    margin-left: 45%;
+    margin-top: 50px;
+    margin-bottom: 25px;
+
+  }
+  .list-group-item{
+    cursor: pointer;
+  }
+  td .btn-default , td .btn-danger{
+    cursor: pointer;
+  }

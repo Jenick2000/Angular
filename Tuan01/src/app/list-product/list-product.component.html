@@ -8,10 +8,11 @@
     <table class="table table-hover">
         <thead>
           <tr>
-            <th><button type="button" class="btn btn-primary">Hien image</button></th>
+            <th><button type="button" class="btn btn-primary hienimg"  (click)="showImg()">{{text}}</button></th>
             <th>product</th>
             <th>code</th>
             <th>availible</th>
+            <th>Quantity</th>
             <th>Price</th>
             <th>5 Star Rating</th>
           </tr>
@@ -19,20 +20,26 @@
         <tbody>
           <tr *ngFor="let p of ListProduct">
             <td>
-                <img src="assets/image/{{p.imageUrl}}" style="width:50px">
+                <img *ngIf="isShow" src="assets/image/{{p.imageUrl}}" style="width:50px">
             </td>
             <td>{{p.productName}}</td>
             <td>{{p.productCode}}</td>
             <td>{{p.releaseDate}}</td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="Giam(p.productId)">-</button>
+                <span>{{p.quantity}}</span>
+              <button type="button" class="btn btn-success" (click)="Tang(p.productId)">+</button>
+            </td>
             <td>{{p.price}}</td>
             <td>
+              <span>{{p.starRating}}</span>
                 <span class="fa fa-star" id="star1"></span>
-                <span class="fa fa-star" id="star2" ></span>
-                <span class="fa fa-star" id="star3" ></span>
-                <span class="fa fa-star" id="star4"></span>
-                <span class="fa fa-star" id="star5" ></span>
             </td>
-          </tr>        
+          </tr>  
+          <tr >
+              <td colspan="6"> Total :</td>
+              <td> {{total()|number}} $</td>
+          </tr>      
         </tbody>
       </table>  
     </div>

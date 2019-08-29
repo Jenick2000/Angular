@@ -12,7 +12,6 @@
             <th>product</th>
             <th>code</th>
             <th>availible</th>
-            <th>Quantity</th>
             <th>Price</th>
             <th>5 Star Rating</th>
           </tr>
@@ -25,21 +24,22 @@
             <td>{{p.productName}}</td>
             <td>{{p.productCode}}</td>
             <td>{{p.releaseDate}}</td>
+            <td>{{p.price}} </td>
             <td>
-                <button type="button" class="btn btn-danger" (click)="Giam(p.productId)">-</button>
-                <span>{{p.quantity}}</span>
-              <button type="button" class="btn btn-success" (click)="Tang(p.productId)">+</button>
-            </td>
-            <td>{{p.price}}</td>
-            <td>
-              <span>{{p.starRating}}</span>
-                <span class="fa fa-star" id="star1"></span>
+               
+              <div [ngStyle]="{'width.px':starRating(p.starRating)}" style="overflow: hidden;">                 
+                <div style="width: 75px">                                        
+                      <span class="fa fa-star" ></span>
+                      <span class="fa fa-star" ></span>
+                      <span class="fa fa-star" ></span>
+                      <span class="fa fa-star" ></span>
+                      <span class="fa fa-star" ></span>
+                  </div>                                            
+              </div>
+             
             </td>
           </tr>  
-          <tr >
-              <td colspan="6"> Total :</td>
-              <td> {{total()|number}} $</td>
-          </tr>      
+            
         </tbody>
       </table>  
     </div>

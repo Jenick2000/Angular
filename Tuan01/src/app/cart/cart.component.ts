@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-list-product',
-  templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class ListProductComponent implements OnInit {
-   ListProduct=[
+export class CartComponent implements OnInit {
+  ListProduct=[
     {
         "productId": 1,
         "productName": "Leaf Rake",
@@ -63,22 +63,32 @@ export class ListProductComponent implements OnInit {
         "imageUrl": "giay2.jpg"
     },
 ];
- isShow=true;
- text="Hidden image";
- 
- showImg(){
-   this.isShow=!this.isShow;
-  if(this.isShow==false){
-    this.text="Show image";
-  }else{
-    this.text="Hidden image";
+  // tang giam san pham trong gio hang
+ Tang(id){
+  for(let i=0;i<this.ListProduct.length;i++){
+      if(this.ListProduct[i].productId==id){
+        this.ListProduct[i].quantity++;
+      }
   }
-
  }
-
- //starRating
- starRating(starRating){
-   return starRating*15;
+ Giam(id){
+  for(let i=0;i<this.ListProduct.length;i++){
+      if(this.ListProduct[i].productId==id){
+        if(  this.ListProduct[i].quantity>0){
+          this.ListProduct[i].quantity--;
+        }
+        
+      }
+  }
+ }
+ // tong tien trong cart
+ total(){
+   let total=0;
+   for(let i=0;i<this.ListProduct.length;i++){
+     total+=this.ListProduct[i].price* this.ListProduct[i].quantity;
+   }
+   return total;
+   //Math.ceil(3.4)
  }
   constructor() { }
 

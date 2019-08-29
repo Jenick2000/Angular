@@ -6,13 +6,16 @@ import { AppComponent } from './app.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { ManagementUserComponent } from './management-user/management-user.component';
+import { CartComponent } from './cart/cart.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductComponent,
     DetailProductComponent,
-    ManagementUserComponent
+    ManagementUserComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

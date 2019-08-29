@@ -1,0 +1,40 @@
+<div class="container" style="margin-bottom: 150px">
+    
+    <h2> Your cart</h2>
+       
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>product</th>            
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of ListProduct">
+            <td>
+                <img  src="assets/image/{{p.imageUrl}}" style="width:50px">
+            </td>
+            <td>{{p.productName}}</td>
+            <td>{{p.price}}</td>
+           
+            <td>
+                <button type="button" class="btn btn-danger" (click)="Giam(p.productId)">-</button>
+                <span>{{p.quantity}}</span>
+              <button type="button" class="btn btn-success" (click)="Tang(p.productId)">+</button>
+            </td>
+         
+            <td>
+                <button type="button" class="btn btn-danger" style="margin-right: 5px">View</button>         
+                <button type="button" class="btn btn-success" >Delete</button>
+            </td>
+          </tr>  
+          <tr >
+              <td colspan="4" style="font-weight: 600;"> Total :</td>
+              <td style="font-weight: 700;"> {{total()|number}} $</td>
+          </tr>      
+        </tbody>
+      </table>  
+    </div>

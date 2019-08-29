@@ -1,12 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-list-product',
-  templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.css']
-})
-export class ListProductComponent implements OnInit {
-   ListProduct=[
+ListProduct=[
     {
         "productId": 1,
         "productName": "Leaf Rake",
@@ -63,26 +55,3 @@ export class ListProductComponent implements OnInit {
         "imageUrl": "giay2.jpg"
     },
 ];
- isShow=true;
- text="Hidden image";
- 
- showImg(){
-   this.isShow=!this.isShow;
-  if(this.isShow==false){
-    this.text="Show image";
-  }else{
-    this.text="Hidden image";
-  }
-
- }
-
- //starRating
- starRating(starRating){
-   return starRating*15;
- }
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}

@@ -1,6 +1,6 @@
 <div class="container" style="margin-bottom: 150px">
     
-    <h2> Your cart</h2>
+    <h2> Your cart Storage : {{getItem.name}}</h2>
        
     <table class="table table-hover">
         <thead>
@@ -10,25 +10,26 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Action</th>
+            
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of ListProduct">
+          <tr *ngFor="let item of items">
             <td>
-                <img  src="assets/image/{{p.imageUrl}}" style="width:50px">
+                <img  src="assets/image/{{item.imageUrl}}" style="width:50px">
             </td>
-            <td>{{p.productName}}</td>
-            <td>{{p.price}}</td>
+            <td>{{item.productName}}</td>
+            <td>{{item.price}}</td>
            
             <td>
-                <button type="button" class="btn btn-danger" (click)="Giam(p.productId)">-</button>
-                <span>{{p.quantity}}</span>
-              <button type="button" class="btn btn-success" (click)="Tang(p.productId)">+</button>
+                <button type="button" class="btn btn-danger" (click)="Giam(item.productId)">-</button>
+                <span>{{item.quantity}}</span>
+              <button type="button" class="btn btn-success" (click)="Tang(item.productId)">+</button>
             </td>
          
             <td>
-                <button type="button" class="btn btn-danger" style="margin-right: 5px">View</button>         
-                <button type="button" class="btn btn-success" >Delete</button>
+                <button type="button" [routerLink]="['/products',item.productId]" class="btn btn-danger" style="margin-right: 5px">View</button>         
+                <button type="button" class="btn btn-success"(click)="deleteItemCart(item.productId)" >Delete</button>
             </td>
           </tr>  
           <tr >
@@ -37,4 +38,5 @@
           </tr>      
         </tbody>
       </table>  
+      <button type="button" [routerLink]="['']"  class="btn btn-primary" style="float: right">Back List Product</button>
     </div>

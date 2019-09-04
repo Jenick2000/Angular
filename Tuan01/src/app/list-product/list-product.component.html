@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 150px">
-    <h1> <i class="fa fa-shopping-cart"></i> Produtos <small> - click on product for details</small> </h1>
-            
+    <h1> <i class="fa fa-shopping-cart"></i> Produtos <small> - click on image product for details</small> </h1>
+    <button type="button" [routerLink]="['/cart']" class="btn btn-danger" style="margin-right: 5px">View Cart</button> 
     <hr>
     <span style="margin-right: 100px"> Filter by:</span><span><input type="text" ></span>
     <h2> Filted by:</h2>
@@ -17,9 +17,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of ListProduct">
+          <tr *ngFor="let p of ListProduct"><!--vong lap lay danh sach-->
             <td>
-                <img *ngIf="isShow" src="assets/image/{{p.imageUrl}}" style="width:50px">
+                <img *ngIf="isShow" [routerLink]="['/products',p.productId]" src="assets/image/{{p.imageUrl}}" style="width:50px;cursor: pointer;">
             </td>
             <td>{{p.productName}}</td>
             <td>{{p.productCode}}</td>

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CartServiceService } from '../cart-service.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+ items;
   ListProduct=[
     {
         "productId": 1,
@@ -63,36 +64,53 @@ export class CartComponent implements OnInit {
         "imageUrl": "giay2.jpg"
     },
 ];
-  // tang giam san pham trong gio hang
- Tang(id){
-  for(let i=0;i<this.ListProduct.length;i++){
-      if(this.ListProduct[i].productId==id){
-        this.ListProduct[i].quantity++;
-      }
+
+ 
+ 
+ 
+  aValue = localStorage.getItem('name');
+   retrievedObject = localStorage.getItem('testObject');
+   getItem=JSON.parse(this.retrievedObject);
+
+  constructor(private cartServiceService:CartServiceService) { }
+
+  ngOnInit() {
+    this.items = this.cartServiceService.getItems();
+   
   }
- }
- Giam(id){
-  for(let i=0;i<this.ListProduct.length;i++){
-      if(this.ListProduct[i].productId==id){
-        if(  this.ListProduct[i].quantity>0){
-          this.ListProduct[i].quantity--;
-        }
+    // tang giam san pham trong gio hang
+  Tang(id){
+    for(let i=0;i<this.items.length;i++){ 
+      if(this.items[i].productId==id){       
+          this.items[i].quantity++;
+        
         
       }
   }
- }
- // tong tien trong cart
- total(){
-   let total=0;
-   for(let i=0;i<this.ListProduct.length;i++){
-     total+=this.ListProduct[i].price* this.ListProduct[i].quantity;
+   
    }
-   return total;
-   //Math.ceil(3.4)
- }
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+   Giam(id){
+    for(let i=0;i<this.items.length;i++){ 
+        if(this.items[i].productId==id){
+          if(  this.items[i].quantity>0){
+            this.items[i].quantity--;
+          }
+          
+        }
+    }
+   }
+   // tong tien trong cart
+  total(){
+    //const total = prices.reduce((a, b) => a + b));
+     let total=0;
+     for(let i=0;i<this.items.length;i++){ 
+        total+=this.items[i].price* this.items[i].quantity;   
+     }
+     return total; 
+     //Math.ceil(3.4)2
+   }
+   deleteItemCart(id){
+     this.cartServiceService.removeItem(id);
+  
+   }
 }

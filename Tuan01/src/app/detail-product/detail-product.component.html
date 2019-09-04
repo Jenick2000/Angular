@@ -7,11 +7,11 @@
 
                 <!-- gallery-wrap .end// -->
                 <article class="card-body p-5">
-                    <h3 class="title mb-3">Original Version of Some product name</h3>
+                    <h3 class="title mb-3">{{product.productName}}</h3>
 
                     <p class="price-detail-wrap">
                         <span class="price h3 text-warning"> 
-		<span class="currency">US $</span><span class="num">1299</span>
+		<span class="currency">US $</span><span class="num">{{product.price}}</span>
                         </span>
                         <span>/per kg</span>
                     </p>
@@ -24,7 +24,7 @@
                     </dl>
                     <dl class="param param-feature">
                         <dt>Model#</dt>
-                        <dd>12345611</dd>
+                        <dd>{{product.productCode}}</dd>
                     </dl>
                     <!-- item-property-hor .// -->
                     <dl class="param param-feature">
@@ -33,22 +33,32 @@
                     </dl>
                     <!-- item-property-hor .// -->
                     <dl class="param param-feature">
-                        <dt>Delivery</dt>
-                        <dd>Russia, USA, and Europe</dd>
+                        <dt>Starrating</dt>
+                        <dd>
+                            <div [ngStyle]="{'width.px':starRating(product.starRating)}" style="overflow: hidden;">                 
+                                <div style="width: 75px">                                        
+                                      <span class="fa fa-star" ></span>
+                                      <span class="fa fa-star" ></span>
+                                      <span class="fa fa-star" ></span>
+                                      <span class="fa fa-star" ></span>
+                                      <span class="fa fa-star" ></span>
+                                  </div>                                            
+                              </div>
+                        </dd>
                     </dl>
                     <!-- item-property-hor .// -->
 
                     <hr>
                     <i class="fa fa-arrow-left" style="font-size: 20px;margin-right: 5px"></i>
-                    <span>Back</span>
-
+                    <span (click)="back()" style="cursor: pointer">Back</span>
+                    <button type="button" [routerLink]="['/cart']"  (click)="addtocart()" class="btn btn-primary" style="float: right">Add to cart</button>
                 </article>
             </aside>
             <aside class="col-sm-7">
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
                         <div>
-                            <a href="#"><img src="assets/image/giay.jpg" style="width:80%"></a>
+                            <a href="#"><img src="assets/image/{{product.imageUrl}}" style="width:80%"></a>
                         </div>
                     </div>
                     <!-- slider-product.// -->

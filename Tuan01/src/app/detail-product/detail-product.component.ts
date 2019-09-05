@@ -81,7 +81,7 @@ export class DetailProductComponent implements OnInit {
   }
   addtocart(){
     
-    this.cart.addToCart(this.product) ;
+    this.cart.addToCart(this.product) ;// cần cái này
     console.log(this.cart.items);
     console.log("do dai cua cart "+this.cart.items.length);
     const name =this.cart.items.map(data => data.productName); 

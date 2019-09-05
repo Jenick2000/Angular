@@ -111,6 +111,6 @@ export class CartComponent implements OnInit {
    }
    deleteItemCart(id){
      this.cartServiceService.removeItem(id);
-  
+ 
    }
 }

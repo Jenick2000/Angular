@@ -68,7 +68,7 @@ export class CartComponent implements OnInit {
  
  
  
-  aValue = localStorage.getItem('name');
+  aValue = localStorage.getItem('name');//test localStorage
    retrievedObject = localStorage.getItem('testObject');
    getItem=JSON.parse(this.retrievedObject);
 
@@ -82,9 +82,7 @@ export class CartComponent implements OnInit {
   Tang(id){
     for(let i=0;i<this.items.length;i++){ 
       if(this.items[i].productId==id){       
-          this.items[i].quantity++;
-        
-        
+          this.items[i].quantity++;   
       }
   }
    

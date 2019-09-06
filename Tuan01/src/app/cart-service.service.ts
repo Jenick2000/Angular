@@ -6,9 +6,6 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
 })
 export class CartServiceService {
   items = [];
-  // jobs = this.items.map(function (item) {
-  //   return item.productId;
-  // });
   dem=0;
   addToCart(product) { 
     if(this.items.length>0){    

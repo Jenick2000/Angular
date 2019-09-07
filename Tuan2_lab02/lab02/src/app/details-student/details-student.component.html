@@ -1,0 +1,76 @@
+<div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/students']">Students</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Details</li>
+          </ol>
+        </nav>
+        <section class="main-content  py-4 mb-5">
+                <div class="container" style="border:1px solid rgba(0,0,0,.1)">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h5> Details Student</h5>
+                                                    <hr>
+                                                </div>
+                                                <ul class="list-group list-group-flush" >
+                                                        <li class="list-group-item"><b>Last name </b></li>
+                                                        <li class="list-group-item">{{student.LastName}}</li>
+                                                        <li class="list-group-item"><b>First name</b></li>
+                                                        <li class="list-group-item">{{student.FirstMidName}}</li>
+                                                        <li class="list-group-item"><b>Enroll date</b></li>
+                                                        <li class="list-group-item">{{student.EnrollmentDate}}</li>
+                                                </ul>
+                                                <table class="table table-bordered" style="margin-top: 50px">
+                                                        <thead>
+                                                          <tr>
+                                                            
+                                                            <th scope="col">Course Title</th>
+                                                            <th scope="col">Grade</th>
+                                                            <th scope="col">Credist</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                       <!--  <tr  *ngFor="let c of course ">
+                                                    
+                                                            <td>{{c.Title}}</td>
+                                                            <td >{{e.Grade}}</td>
+                                                            <td>{{c.Credits}}</td>
+                                                          </tr>-->
+                                                          <tr *ngFor="let c of course; let i=index">
+                                                          
+                                                              <td>{{ c.Title }}</td>
+                                                              <td>{{enrolldate[i].Grade}}</td>
+                                                              <td>{{c.Credits }}</td>
+                                                          
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row mb-3">
+                                <div class="col-md-12 col-lg-12">
+                                     
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </section>
+
+ </div>
+
+       

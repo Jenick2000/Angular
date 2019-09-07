@@ -1,0 +1,102 @@
+<div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Students</li>
+           
+          </ol>
+        </nav>
+        <section class="main-content  py-4 mb-5">
+                <div class="container" style="border:1px solid rgba(0,0,0,.1)">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h5> List Student</h5>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row mb-3">
+                                <div class="col-md-12 col-lg-12">
+                                        <div id="custom-search-input">
+                                                <div class="input-group col-md-12">
+                                                    <input id="myInput" type="text" class="  search-query form-control" placeholder="Search" />
+                                                    <span class="input-group-btn">
+                                                       
+                                                          <i class='fas fa-search' style='font-size:40px;color:red'></i>
+                                                       
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        <table class="table table-hover table-bordered" >
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">FirstName</th>
+                                                    <th scope="col">LastName</th>
+                                                    <th scope="col">EnrollDate</th>
+                                                    <th scope="col">Action</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="myTable">
+                                                  <tr *ngFor="let student of students">
+                                                   
+                                                  
+                                                    <td>{{student.FirstMidName}}</td>
+                                                    <td>{{student.LastName}}</td>
+                                                    <td>{{student.EnrollmentDate}}</td>
+                                                    <td>
+                                                        <i class="fas fa-info-circle"  [routerLink]="['/details',student.ID]"></i>
+                                                        <i class="far fa-trash-alt" (click)="xoa(student.ID)"></i>
+                                                      
+                                                    </td>
+                                                  </tr>
+                                                
+                                                  
+                                                </tbody>
+                                              </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-lg-6">
+                                <P>Showing 1 of 3</P>
+                                
+                            </div>
+                            <div class="col-lg-6">
+                                    <nav aria-label="...">
+                                            <ul class="pagination">
+                                              
+                                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                              <li class="page-item active" aria-current="page">
+                                                <span class="page-link">
+                                                  2
+                                                  <span class="sr-only">(current)</span>
+                                                </span>
+                                              </li>
+                                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                              <li class="page-item">
+                                                <a class="page-link" href="#">&raquo;</a>
+                                              </li>
+                                            </ul>
+                                          </nav>
+                                    
+                                </div>
+                        </div>
+                </div>
+            </section>
+
+ </div>
+
+       

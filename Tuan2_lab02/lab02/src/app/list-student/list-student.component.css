@@ -1,0 +1,19 @@
+
+
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+
+
+.fa-info-circle{
+    color: green;
+    margin-right: 10px;
+    cursor: pointer!important;
+}
+.fa-trash-alt{
+    color:red;
+    cursor: pointer;
+}

@@ -26,7 +26,7 @@ students =[
    }
   }
  }
- 
+ p: number = 1;
   constructor() { }
 
   ngOnInit() {

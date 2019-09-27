@@ -1,0 +1,37 @@
+
+
+<div class="container">
+
+<!-- Form starts -->
+<form [formGroup]="validatorForm" (ngSubmit)="onSubmit()">
+  <!-- Full name -->
+  <div class="mb-3">
+    <label>Tell us your age? {{name.value}} </label>
+        <input type="text" class="form-control" required 
+        formControlName="name">
+
+        
+        <div *ngIf="name.errors?.age" style="color:red">
+          
+         <sup>*</sup>Age should not be more than 18 years
+        </div>   
+      </div>
+
+      <label> luong cua ban  {{luong.value}}</label>
+      <input type="text" class="form-control" required formControlName="luong">
+      <div *ngIf="luong.invalid && (luong.dirty || luong.touched)">
+
+          <div *ngIf="luong.errors.required " style="color:red">         
+              <sup>*</sup>Luong is require !
+            </div>
+
+            <div *ngIf="luong.errors.luong  && !luong.errors.required" style="color:red">         
+              <sup>*</sup>Luong nen lon hon 2 trieu
+            </div>
+      </div>
+        <br>
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-danger btn-lg btn-block">Submit </button>
+</form><!-- Form ends -->
+
+</div>

@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+          Tính lương Tết Nguyên Đán 
+      </div>
+      <div class="card-body">
+          <form [formGroup]="validatorForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Họ và tên</label>
+                  <input type="text" required minlength="4" class="form-control" formControlName="name" placeholder="le van let">
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" style="color:red">
+
+                      <div *ngIf="name.errors.required">
+                          <sup>*</sup> Họ tên cần được nhập !
+                      </div>
+                      <div *ngIf="name.errors.minlength">
+                          <sup>*</sup> Name must be at least 4 characters long.
+                      </div>
+                  </div>
+                  <div *ngIf="name.valid" style="color: green">
+                      Họ tên hợp lệ.
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Lương </label>
+                  <input type="number" required formControlName="luong" class="form-control" placeholder="900000">
+
+                  <div *ngIf="luong.invalid && (luong.dirty || luong.touched)" style="color:red">
+
+                      <div *ngIf="luong.errors.required">
+                          <sup>*</sup> Chưa nhập lương!
+                      </div>
+
+                      <div *ngIf="luong.errors.luong && !luong.errors.required">
+                          <sup>*</sup>Lương lớn hơn hoặc bằng 2 triệu!
+                      </div>
+                  </div>
+
+                  <div *ngIf="luong.valid " style="color: green">
+                      Lương hợp lệ.
+                  </div>
+              </div>
+
+              <label for="exampleInputEmail1">Giới tính</label>
+              <br>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" required #gender="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="NV.gender" value="Nam">
+                  <label class="form-check-label" for="inlineRadio1">Nam</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" required #gender="ngModel" value="Nu" [ngModelOptions]="{standalone: true}" [(ngModel)]="NV.gender">
+                  <label class="form-check-label" for="inlineRadio2">Nu</label>
+              </div>
+              <div *ngIf="gender.errors?.required" style="color: red">Gender is required</div>
+              <br>
+
+              <label for="exampleInputEmail1">Do tuoi</label>
+              <br>
+              <select [ngModelOptions]="{standalone: true}" required [(ngModel)]="NV.rate" #dotuoi="ngModel" class="form-control form-control-sm">
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option *ngFor="let age of nhom" value="{{age.rate}}">{{age.age}}</option>
+              </select>
+              <div *ngIf="dotuoi.invalid && (dotuoi.dirty || dotuoi.touched)" style="color:red">
+                  <div *ngIf="dotuoi.errors.required">
+                      choose range age. 
+                  </div>
+              </div>
+              <div *ngIf="dotuoi.valid " style="color: green">
+                Gender valid.
+            </div>
+              <br>
+          </form>
+      </div>
+      <div class="card-footer">
+          <span style="color:orange"> Tien thuong  :</span><span *ngIf="name.valid && luong.valid && dotuoi.valid && gender.valid "><b> {{total() | number}} VNĐ </b></span> 
+      </div>
+  </div>
+</div>

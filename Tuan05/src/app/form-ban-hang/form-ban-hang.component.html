@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card ">
+        <div class="card-header">
+          Bán Hàng Giải Khát
+        </div>
+        <div class="card-body">
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Tên Hàng</th>
+                          <th scope="col">Số Lượng</th>
+                          <th scope="col">Đơn Giá</th>
+                          <th scope="col">Thành Tiền</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let p of items">
+                          <th scope="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"[(ngModel)]="p.checked">                    
+                              </div>
+                              <span style="margin-left:25px">{{p.name}}</span>
+                          </th>
+                          <td>
+                                <div class="col-sm-10">
+                                        <input type="number"[attr.disabled]="!p.checked ? '' : null"[(ngModel)]="p.soluong" (change)="thanhtien()" min="0" style="width: 70px;" class="form-control" >
+                                      </div>
+                          </td>
+                          <td><input style="border: none;background-color:white " disabled  value="{{p.price}}"></td>
+                          <td>$<input style="border: none;background-color:white " disabled [(ngModel)]="p.thanhtien" > </td>
+                        </tr>
+                        </tbody>
+                </table>
+              </div>
+        </div>
+        <div class="card-footer">
+          <b>Tổng Tiền : $ {{total()|number}}</b>
+        </div>
+      </div>
+</div>

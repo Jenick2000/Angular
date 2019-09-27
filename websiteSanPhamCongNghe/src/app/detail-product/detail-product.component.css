@@ -1,0 +1,11 @@
+.btn{
+    background: linear-gradient(to right, #00ffff 0%, #ff99cc 100%);
+    color:black;
+}
+.hanglienquan{
+    width: 12%;
+    margin-right: 20px;
+    }
+    .hanglienquan img:hover{
+        border:1px solid orange;
+    }

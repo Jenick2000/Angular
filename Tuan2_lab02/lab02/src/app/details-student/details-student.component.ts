@@ -53,21 +53,24 @@ export class DetailsStudentComponent implements OnInit {
     this.route.paramMap.subscribe(pramas=>{this.id=+pramas.get('studentId')});
     this.student=this.students.find(p=>p.ID===this.id);
    
-    for(var i=0;i<this.enrollments.length;i++){
-      if(this.enrollments[i].StudentID==this.id){
-        this.enrolldate.push(this.enrollments[i]);      
+    for(let p of this.enrollments){
+      if(p.StudentID==this.id){
+        this.enrolldate.push(p);   
       } 
     }
-    for(var i=0;i<this.enrolldate.length;i++){
-      for(var j=0;j<this.courses.length;j++){
-        if(this.courses[j].CourseID==this.enrolldate[i].CourseID){
-          this.course.push(this.courses[j]);
-        }
-      }
+    for (let c of this.enrolldate){
+      this.course.push(this.courses.find(p=>p.CourseID===c.CourseID));
     }
-    console.log("student ID :");
-    console.log(this.enrolldate);
-    console.log("cac khoa hoc");
-    console.log(this.course);
+    // for(var i=0;i<this.enrolldate.length;i++){
+    //   for(var j=0;j<this.courses.length;j++){
+    //     if(this.courses[j].CourseID==this.enrolldate[i].CourseID){
+    //       this.course.push(this.courses[j]);
+    //     }
+    //   }
+    // }
+    // for(var i=0;i<this.enrolldate.length;i++){
+    //   this.course.push(this.courses.find(p=>p.CourseID===this.enrolldate[i].CourseID));
+    // }
+ 
   }
 }

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import{RouterModule} from'@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { ListStudentComponent } from './list-student/list-student.component';
 import { DetailsStudentComponent } from './details-student/details-student.component';
 
@@ -15,6 +16,7 @@ import { DetailsStudentComponent } from './details-student/details-student.compo
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     RouterModule.forRoot([ 
       { path: '', 	component: ListStudentComponent }, 

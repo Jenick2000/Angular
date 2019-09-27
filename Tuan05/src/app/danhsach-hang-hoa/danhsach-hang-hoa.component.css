@@ -1,0 +1,11 @@
+.phantrang i{
+        padding: 10px;
+        cursor: pointer;
+}
+.phantrang{
+    margin: 0 auto;
+}
+
+.phantrang i:hover{
+        background-color: orange;
+}
